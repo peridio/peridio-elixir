@@ -10,6 +10,15 @@ defmodule PeridioSDK.DeviceAPI.Devices do
     )
   end
 
+  def shadow(client, shadow) do
+    HTTPClient.put(
+      client,
+      DeviceAPI.middleware(client),
+      "/device/shadow",
+      shadow
+    )
+  end
+
   def update(client, expand \\ []) do
     HTTPClient.get(
       client,
